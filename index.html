@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>You're being redirected ✨</title>
+  <meta name="description" content="A short stop before you reach your destination.">
+  <!-- No JavaScript? This sends the visitor on after 8 seconds. Keep the URL the same as REDIRECT_URL. -->
+  <noscript><meta http-equiv="refresh" content="8;url=https://github.com/sirine2907"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+
+      /* Palette */
+      --blush: #fbd5e0;
+      --lavender: #e0d4f7;
+      --peach: #ffdfc8;
+      --cream: #fff8f0;
+
+      /* Page colors */
+      --text: #47203f;
+      --text-soft: #6b4262;
+      --card: rgba(255, 255, 255, 0.62);
+      --card-border: rgba(255, 255, 255, 0.85);
+      --card-shadow: 0 24px 60px rgba(150, 80, 130, 0.22);
+      --track: rgba(107, 66, 98, 0.15);
+      --bar-start: #f276a8;
+      --bar-end: #a585e8;
+      --button: #a82c66;
+      --button-hover: #8e2255;
+      --button-text: #ffffff;
+      --focus: #5b2a9e;
+      --float: #d9598f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 16px;
+      background: var(--cream);
+      color: var(--text);
+      font-family: "Quicksand", "Nunito", "Segoe UI", system-ui, sans-serif;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* Background */
+    .sky {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: linear-gradient(130deg, var(--blush), var(--lavender), var(--peach), var(--cream));
+      background-size: 180% 180%;
+      animation: drift 24s ease-in-out infinite alternate;
+    }
+
+    .float {
+      position: absolute;
+      bottom: -40px;
+      left: var(--x);
+      color: var(--float);
+      font-size: var(--size);
+      line-height: 1;
+      opacity: 0;
+      animation: rise var(--time) linear var(--wait) infinite;
+    }
+
+    @keyframes drift {
+      from { background-position: 0% 30%; }
+      to { background-position: 100% 70%; }
+    }
+
+    @keyframes rise {
+      0% { opacity: 0; transform: translate(0, 0) rotate(-10deg); }
+      15% { opacity: 0.4; }
+      50% { transform: translate(26px, -55vh) rotate(10deg); }
+      85% { opacity: 0.4; }
+      100% { opacity: 0; transform: translate(-10px, -110vh) rotate(-10deg); }
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      padding: 40px 36px 32px;
+      border: 1px solid var(--card-border);
+      border-radius: 32px;
+      background: var(--card);
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      backdrop-filter: blur(18px) saturate(140%);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      margin: 0 0 24px;
+      color: var(--text-soft);
+      text-wrap: balance;
+    }
+
+    .destination {
+      margin: 0 0 28px;
+      padding: 12px 20px;
+      border-radius: 20px;
+      background: var(--card);
+      color: var(--text-soft);
+      font-size: 0.875rem;
+    }
+
+    .destination strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.125rem;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    /* Countdown */
+    .countdown {
+      min-height: 1.5em;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .track {
+      height: 12px;
+      margin-bottom: 28px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--track);
+    }
+
+    .bar {
+      width: 0;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--bar-start), var(--bar-end));
+      transition: width 0.1s linear;
+    }
+
+    .bar.stopped {
+      opacity: 0.45;
+    }
+
+    /* Actions */
+    .continue {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 24px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--button);
+      color: var(--button-text);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .continue:hover {
+      background: var(--button-hover);
+      transform: translateY(-1px);
+    }
+
+    .cancel {
+      min-height: 44px;
+      margin-top: 8px;
+      padding: 8px 16px;
+      border: 0;
+      border-radius: 999px;
+      background: none;
+      color: var(--text-soft);
+      font: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    .cancel:hover {
+      color: var(--text);
+    }
+
+    a {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 32px 22px 24px;
+        border-radius: 28px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="float" style="--x:6%;--size:20px;--time:26s;--wait:-3s">♥︎</span>
+    <span class="float" style="--x:17%;--size:13px;--time:32s;--wait:-19s">✦</span>
+    <span class="float" style="--x:29%;--size:16px;--time:28s;--wait:-11s">♥︎</span>
+    <span class="float" style="--x:43%;--size:12px;--time:36s;--wait:-27s">✦</span>
+    <span class="float" style="--x:58%;--size:18px;--time:30s;--wait:-6s">♥︎</span>
+    <span class="float" style="--x:71%;--size:14px;--time:34s;--wait:-22s">✦</span>
+    <span class="float" style="--x:83%;--size:22px;--time:27s;--wait:-15s">♥︎</span>
+    <span class="float" style="--x:93%;--size:12px;--time:31s;--wait:-9s">✦</span>
+  </div>
+
+  <main class="card">
+    <h1>You're being redirected ✨</h1>
+    <p class="subtitle">Just a moment, we're getting everything ready for you.</p>
+
+    <noscript>
+      <p>You'll be taken there in a few seconds, or you can
+        <a href="https://github.com/sirine2907">go there now</a>.</p>
+    </noscript>
+
+    <div id="redirect-box" hidden>
+      <p class="destination">Taking you to <strong id="destination"></strong></p>
+
+      <p class="countdown" id="countdown" aria-live="polite" aria-atomic="true"></p>
+      <div class="track" aria-hidden="true">
+        <div class="bar" id="bar"></div>
+      </div>
+
+      <button class="continue" id="continue" type="button">Continue now</button>
+      <button class="cancel" id="cancel" type="button">Cancel</button>
+    </div>
+  </main>
+
+  <script>
+    // Change these two values to set up your redirect
+    const REDIRECT_URL = "https://github.com/sirine2907";
+    const DURATION = 8000; // in milliseconds
+
+    const countdownText = document.getElementById("countdown");
+    const bar = document.getElementById("bar");
+    const continueButton = document.getElementById("continue");
+    const cancelButton = document.getElementById("cancel");
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const startTime = Date.now();
+    let timer;
+
+    function goToDestination() {
+      clearInterval(timer);
+      window.location.replace(REDIRECT_URL);
+    }
+
+    function updateCountdown() {
+      const timeLeft = DURATION - (Date.now() - startTime);
+
+      if (timeLeft <= 0) {
+        countdownText.textContent = "Redirecting now…";
+        bar.style.width = "100%";
+        goToDestination();
+        return;
+      }
+
+      const seconds = Math.ceil(timeLeft / 1000);
+      const message = "Redirecting in " + seconds + (seconds === 1 ? " second" : " seconds");
+
+      // Only change the text when the number changes, so screen readers don't repeat it
+      if (countdownText.textContent !== message) {
+        countdownText.textContent = message;
+      }
+
+      // With reduced motion the bar moves once per second instead of smoothly
+      const shownTime = reducedMotion ? seconds * 1000 : timeLeft;
+      bar.style.width = (1 - shownTime / DURATION) * 100 + "%";
+    }
+
+    function cancelRedirect() {
+      clearInterval(timer);
+      countdownText.textContent = "Redirect cancelled. Continue whenever you're ready.";
+      bar.classList.add("stopped");
+      continueButton.focus();
+      cancelButton.hidden = true;
+    }
+
+    document.getElementById("destination").textContent = new URL(REDIRECT_URL, window.location.href).hostname;
+    document.getElementById("redirect-box").hidden = false;
+    continueButton.addEventListener("click", goToDestination);
+    cancelButton.addEventListener("click", cancelRedirect);
+
+    updateCountdown();
+    timer = setInterval(updateCountdown, 100);
+  </script>
+</body>
+</html>
