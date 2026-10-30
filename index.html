@@ -246,6 +246,25 @@
         --float: #f78fb9;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sky {
+        animation: none;
+      }
+
+      .float {
+        display: none;
+      }
+
+      .bar,
+      .continue {
+        transition: none;
+      }
+
+      .continue:hover {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
